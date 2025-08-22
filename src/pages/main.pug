@@ -1,0 +1,569 @@
+extends tmpl/_layout
+
+block vars
+	- var pageId = 'main'
+
+block body
+	section.main-block.mb-indent
+		.container
+			.row
+				.col-12
+					.main-block__content
+						.main-block__main
+							.main-block__info
+								h1 Тёплый дом за 1 день 
+									span.text-color с экономией до 30%
+								
+								.main-block__text Получите модульную котельную по проекту с гарантией экономии на материалах до 30% - проверено сотнями объектов
+
+								.note
+									.note__img
+										img(src="/upload/note-img.png", alt="")
+
+									.note__content
+										.note__text Узнайте стоимость для вашего дома 
+											b за 5 минут без звонков
+
+										a.btn Узнать стоимость
+
+							.video-block
+								.video-block__img
+									img(src="/upload/video.jpg", alt="")
+								
+								.video-block__title Зачем нужен проект?
+								.video-block__text Смотрите разбор от главного инженера
+
+						.advantages
+							-
+								var list=[
+									{main:'25 лет', text:' проектируем инженерные системы'},
+									{main:'Команда обученных', text:' инженеров, без подрядчиков'},
+									{main:'5,0 рейтинг', text:' всех отзывов на услуги проектирования'},
+									{main:'1500+ проектов', text:' реализовали по всей России'},
+								]
+							each item in list
+								.advantages__item
+									.advantages__icon
+										+svg('ic-check','ic-check', '12', '10')
+
+									.advantages__text
+										span.advantages__accent= item.main
+										=item.text
+
+	section.main-projects.m-indent
+		.container
+			.row
+				.col-12
+					.main-projects__content
+						.main-projects__title
+							h2
+								span.text-color Что входит
+								| в проект:
+
+						-
+							var list=[
+								{icon:'consulting.svg', title:'Консультация и тех. задания', text:'Инженер разбирает вашу задачу, фиксирует требования, подбирает оптимальное решение'},
+								{icon:'docs.svg', title:'Пакет документов', text:'3D-проект отопления. Альбом в PDF/Revit + пояснительная записка — готово к монтажу и согласованию'},
+								{icon:'auto.svg', title:'Автоматика и безопасность', text:'Схемы управления, защиты и датчиков для стабильной работы'},
+								{icon:'montage.svg', title:'Сопровождение монтажа', text:'Ответы монтажникам, авторский надзор по чек-листу до запуска'},
+								{icon:'system.svg', title:'Расчёты системы', text:'Теплопотери, гидравлика, мощности котла/насосов, балансировка контуров'},
+								{icon:'scheme.svg', title:'Схемы и чертежи', text:'Схема котельной, аксонометрия/планы этажей, узлы подключений'},
+								{icon:'equipment.svg', title:'Подбор оборудования', text:'Рекомендации по брендам и артикулам под ваш бюджет и доступность'},
+								{icon:'plan.svg', title:'Смета и спецификация', text:'Прозрачный перечень материалов и работ с количеством и ценами'},
+							]
+						each item in list
+							.project-content
+								.project-content__icon
+									img(src="/upload/"+item.icon, alt="")
+
+								.project-content__content
+									.project-content__title= item.title
+									.project-content__text= item.text
+
+						.main-projects__img
+							img(src="/upload/3d.png", alt="")
+						
+					.steps
+						.steps__head
+							.steps__icon
+								+svg('ic-help-circle','ic-help-circle', '32', '32')
+
+							.steps__title Почему выгодно работать с нами?
+
+						.steps__list
+							-
+								var list=[
+									{num:'01', text1:'Экономия', text2:'на материалах'},
+									{num:'02', text1:'Простая, надёжная и предсказуемая сборка'},
+									{num:'03', text1:'Возможность контролировать подрядчика'},
+								]
+							each item in list
+								.steps__item
+									.steps__text= item.text1
+										if(item.text2)
+											br
+											=item.text2
+
+									.steps__num= item.num
+	
+	section.partners-wrap.m-indent
+		.container
+			.row
+				.col-12
+					h3
+						span.text-color Сертифицированные дилеры
+						| 20+ ведущих брендов
+
+					p Наш оптовый отдел дает лучшие сроки и условия. Мы подбираем решения с учётом бюджета, доступности и дальнейшего обслуживания
+					
+				.partners-line
+					-
+						var list=[
+							{img:'buderus.jpg'},
+							{img:'navien.jpg'},
+							{img:'bosch.jpg'},
+							{img:'ferroli.jpg'},
+							{img:'electrolux.jpg'},
+							{img:'arderia.jpg'},
+							{img:'lemax.jpg'},
+							{img:'kiturami.jpg'},
+							{img:'konord.jpg'},
+						]
+					each item in list
+						.partners-line__item
+							img(src="/upload/"+item.img, alt="")
+
+	section.type-project.m-indent
+		.container
+			.row
+				.col-12
+					h2
+						span.text-color Выберите подходящий
+						| тип проекта
+
+					p
+						|Проект 
+						span.text-color экономит вам до 30% 
+						|на монтаже и эксплуатации
+					
+		.projects-list
+			.container
+				.row
+					-
+						var list=[
+							{label:'классическое решение', img:'project1.png', title:'Только котельная', note:'Без доплат: консультации, сопровождение, гарантия по договору.', text:'Подходит, если тёплые полы и радиаторы уже установлены или не нужны', price:'30 000 - 45 000 ₽'},
+							{label:'Топ заказов', label_color:'red', img:'project2.png', title:'Полное отопление', note:'Без доплат: консультации, сопровождение, гарантия по договору.', text:'Может включать: только тёплый пол, только радиаторы, комбинацию «тёплый пол + радиаторы»', price:'65 000 - 89 000 ₽'},
+							{label:'для домов от 150 м²',label_color:'green', img:'project3.png', title:'Индивидуальный проект', note:'Без доплат: консультации, сопровождение, гарантия по договору.', text:'Для домов более 150 м² или со сложными инженерными решениями', price:'Индивидуально'},
+						]
+					each item in list
+						.col-4
+							.project-item
+								.project-item__label(class=item.label_color?'project-item__label_'+item.label_color:'')= item.label
+
+								.project-item__img
+									img(src="/upload/"+item.img, alt="")
+
+								.project-item__title= item.title
+								.project-item__note item.note
+								.project-item__text= item.text
+
+								.project-item__price
+									+svg('ic-tag','ic-tag', '15', '15')
+									= item.price
+
+								a(href="#").btn Получить персональную цену
+			
+	section.advant-card-wrap.m-indent
+		.container
+			.row
+				.col-8.offset-2
+					h2
+						span.text-color Почему все наши проекты 
+						|выполняются с модульной котельной?
+
+					p
+						|Модульная котельная —  
+						span.text-color экономия до 30%
+						| на материалах и монтаже
+					
+		.advant-card-list
+			.container
+				.row
+					.col-4
+						.advant-card
+							.advant-card__icon
+								img(src="/upload/prof.svg", alt="")
+
+							.advant-card__title
+								span.text-color Профессиональная
+								| разработка
+
+							.advant-card__text Конструкция и решения, созданные инженерами с 25-летним опытом. Эффективная автоматика.
+
+					.col-4
+						.advant-card
+							.advant-card__icon
+								img(src="/upload/compactness.svg", alt="")
+
+							.advant-card__title Эстетика и 
+								span.text-color компактность
+
+							.advant-card__text Заводское качество сборки, аккуратное исполнение, занимает <1 м² — идеальный узел.
+
+					.col-4
+						.advant-card
+							.advant-card__icon
+								img(src="/upload/comfort.svg", alt="")
+
+							.advant-card__title
+								span.text-color Удобство
+								| обслуживания
+
+							.advant-card__text Одобрено сервисными инженерами, всё доступно и продумано для ремонта и ТО. Сборка всего за 1 день!
+
+					.col-4
+						a(href="#").video-card(style="background-image: url(/upload/bg-video.jpg)")
+							.video-card__content
+								.video-card__icon
+
+								.video-card__info
+									.video-card__title Смотреть видео:
+									.video-card__text Уникальное решение на рынке. Компактная котельная в 1м²
+	
+	section.company-data.m-indent
+		.container
+			.row
+				.col-12
+					h2
+						|За 25 лет мы 
+						span.text-color доказали свою надежность
+
+					p и выполнили более 2000+ проектов по всей России
+					
+		.person-list
+			.container
+				.row
+					
+					-
+						var list=[
+							{
+								img:'woman.jpg',
+								years:'12 лет',
+								name:'Екатерина',
+								post:'руководитель отдела проектирования',
+								text:'1'
+							},
+							{
+								img:'man.jpg',
+								years:'17 лет',
+								name:'Дмитрий',
+								post:'главный инженер',
+								text:'2'
+							},
+						]
+					each item in list
+						.col-6
+							.person
+								.person__main
+									.person__img
+										img(src="/upload/"+item.img, alt="")
+
+									.person__data
+										.person__years= item.years
+										.person__label опыт работы
+
+								.person__content
+									.person__name= item.name
+									.person__post= item.post
+
+									.person__text
+										if(item.text == 1)
+											ul.list-color
+												li
+													b Аттестованный эксперт
+													| по промышленной безопасности в федеральной службе по экологическому, технологическому и атомному надзору.
+
+												li
+													b Подтверждённая квалификация
+													| 7-го уровня в организации архитектурно-строительного проектирования.
+
+										else if(item.text == 2)
+											ul.list-color
+												li
+													b Спикер международной выставки
+													| Aquatherm по промышленному оборудованию и инженерным системам.
+												
+												li
+													b Главный инженер и учредитель компании
+													| “Вечные Трубы”.
+
+												li
+													b Более 2 000
+													| выполненных проектов
+	
+		.gallery
+			.container
+				.row
+					.col-12
+						.gallery__note
+							+svg('ic-zoom-in','ic-zoom-in', '20', '21')
+							|нажмите на фото, чтобы их увеличить
+					
+				.row
+					.gallery__list
+						-
+							var list=[
+								{img:'gallery1.jpg', text:'Проект водоснабжения и отопления с теплым полом'},
+								{img:'gallery2.jpg', text:'Проект отопления квартиры 150 кв. м.'},
+								{img:'gallery3.jpg', text:'Проект насосной станции'},
+								{img:'gallery4.jpg', text:'Проект вентиляции бассейна'},
+								{img:'gallery5.jpg', text:'Проект водоснабжения квартиры'},
+								{img:'gallery6.jpg', text:'Проект вентиляции бассейна'},
+								{img:'gallery7.jpg', text:'Проект дымовых труб'},
+								{img:'gallery8.jpg', text:'Проект вентиляции кафе'},
+							]
+						each item in list
+							.col-3
+								a(href="/upload/"+item.img, data-fancybox='reviews').gallery__item
+									.gallery__img-wrap
+										.gallery__img
+											img(src="/upload/"+item.img, alt="")
+
+									.gallery__text= item.text
+
+				.row
+					.col-12
+						.gallery__btn
+							a(href="#").btn Показать больше примеров
+
+	section.reviews-wrap.m-indent
+		.container
+			.row
+				.col-12
+					h2
+						span.text-color Наши клиенты высоко
+						| оценивают нас
+
+					p за индивидуальный подход и подбор оптимальных решений
+
+					.reviews-advant
+						.reviews-advant__label нашим клиентам особенно нравится:
+
+						.reviews-advant__list
+							.reviews-advant
+								.reviews-advant__icon
+									+svg('ic-check','ic-check', '12', '10')
+
+								.reviews-advant__text “К ним приходишь с идеей, 
+									b а выходишь с проектом, расчетом и желанием строить”
+
+							.reviews-advant
+								.reviews-advant__icon
+									+svg('ic-check','ic-check', '12', '10')
+
+								.reviews-advant__text
+									b “Всем рекомендую, профессионалы,
+									| всё четко и грамотно”
+
+							.reviews-advant
+								.reviews-advant__icon
+									+svg('ic-check','ic-check', '12', '10')
+
+								.reviews-advant__text
+									b «Советовали, вносили пожелания и терпеливо
+									| корректировали мои правки»
+
+						.reviews-slider-wrap
+							.swiper.reviews-slider.js-reviews-slider
+								.swiper-wrapper
+									-
+										var list=[
+											{img:'reviews1.jpg'},
+											{img:'reviews2.jpg'},
+											{img:'reviews3.jpg'},
+											{img:'reviews2.jpg'},
+											{img:'reviews3.jpg'},
+										]
+									each item in list
+										.swiper-slide.reviews-slider__item
+											a(href="/upload/"+item.img, data-fancybox='reviews').reviews-slider__img
+												img(src="/upload/"+item.img, alt="")
+
+							.reviews-slider-wrap__bottom
+								.swiper-button-prev.js-reviews-slider-prev
+									+svg('ic-arrow-left','ic-arrow-left', '8', '14')
+
+								.reviews-slider-wrap__note
+									+svg('ic-zoom-in','ic-zoom-in', '20', '21')
+									|нажмите на фото, чтобы их увеличить
+								
+								.swiper-button-next.js-reviews-slider-next
+									+svg('ic-arrow-right','ic-arrow-right', '8', '14')
+	
+	section.process-wrap.m-indent
+		.container
+			.row
+				.col-12
+					h2
+						span.text-color Прозрачный
+						| процесс работы:
+
+					.process-list
+						-
+							var list=[
+								{
+									icon:'agreement.svg',
+									title:'Согласование',
+									text:'Обсуждаем все детали и пожелания по вашему проекту, отвечаем на вопросы и помогаем выбрать оптимальные решения.'
+								},
+								{
+									icon:'docs-list.svg',
+									title:'Техническое задание',
+									text:'Формируем чёткое и подробное ТЗ, в котором фиксируются все параметры и требования к будущей системе.'
+								},
+								{
+									icon:'contract.svg',
+									title:'Договор и предоплата',
+									text:'Заключаем официальный договор с прозрачными условиями, после чего вы вносите предоплату для старта работ.'
+								},
+								{
+									icon:'edits.svg',
+									title:'Правки',
+									text:'Показываем предварительный проект и бесплатно вносим все необходимые корректировки по вашим пожеланиям.'
+								},
+								{
+									icon:'project.svg',
+									title:'Сдача проекта',
+									text:'Передаём полный комплект документации, помогаем с консультациями по реализации и контролю монтажа.'
+								},
+							]
+						each item in list
+							.process-item
+								.process-item__icon
+									img(src="/upload/"+item.icon, alt="")
+
+								.process-item__title= item.title
+								.process-item__text= item.text
+
+					.note-active
+						.note-active__title Получите пример сметы и&nbsp;реализации проектов
+						.note-active__text Оставьте свои данные и мы пришлем их вам в течение дня
+
+						a(href="#").btn Получить примеры и смету
+	
+	section.video-wrap.m-indent
+		.container
+			.video-wrap__top
+				.row
+					.col-7
+						h2
+							|Делимся опытом 
+							span.text-color и экспертным мнением
+
+					.col-5
+						.social-wrap
+							.social-wrap__label Подписывайтесь, чтобы следить за обновлениями и советами
+
+							.social.social_white
+								a(href="#").social__item.social__item_tg
+									+svg('ic-telegram','ic-telegram', '17', '16')
+
+								a(href="#").social__item.social__item_youtube
+									+svg('ic-youtube','ic-youtube', '20', '14')
+
+								a(href="#").social__item.social__item_vk
+									+svg('ic-vk','ic-vk', '21', '14')
+
+				.row
+					.col-12
+						.reviews-slider-wrap
+							.swiper.video-slider.js-video-slider
+								.swiper-wrapper
+									-
+										var list=[
+											{img:'video1.jpg', video:'https://www.youtube.com/watch?v=z2X2HaTvkl8', title:'Как выбрать материал для котельной?'},
+											{img:'video2.jpg', video:'https://www.youtube.com/watch?v=UdaQRvVTIqU', title:'Как выбрать материал для котельной?'},
+											{img:'video3.jpg', video:'https://www.youtube.com/watch?v=LXb3EKWsInQ', title:'Как выбрать материал для котельной?'},
+											{img:'video4.jpg', video:'https://www.youtube.com/watch?v=UdaQRvVTIqU', title:'Как выбрать материал для котельной?'},
+											{img:'video2.jpg', video:'https://www.youtube.com/watch?v=UdaQRvVTIqU', title:'Как выбрать материал для котельной?'},
+											{img:'video3.jpg', video:'https://www.youtube.com/watch?v=LXb3EKWsInQ', title:'Как выбрать материал для котельной?'},
+										]
+									each item in list
+										.swiper-slide.video-slider__item
+											a(href=item.video, data-fancybox='video').video-slider__img
+												img(src="/upload/"+item.img, alt="")
+
+											e.video-slider__title= item.title
+
+							.video-slider-wrap__bottom
+								.swiper-button-prev.js-video-slider-prev
+									+svg('ic-arrow-left','ic-arrow-left', '8', '14')
+
+								.video-slider-wrap__note
+									|листайте, чтобы увидеть больше видео
+								
+								.swiper-button-next.js-video-slider-next
+									+svg('ic-arrow-right','ic-arrow-right', '8', '14')
+	
+	section.map-wrap.m-indent
+		.container
+			.row
+				.col-7
+					h2
+						Делимся опытом 
+						span.text-color и экспертным мнением
+
+				.col-5
+					.social-wrap
+						.social-wrap__label Подписывайтесь, чтобы следить за обновлениями и советами
+
+						.social.social_white
+							a(href="#").social__item.social__item_tg
+								+svg('ic-telegram','ic-telegram', '17', '16')
+
+							a(href="#").social__item.social__item_youtube
+								+svg('ic-youtube','ic-youtube', '20', '14')
+
+							a(href="#").social__item.social__item_vk
+								+svg('ic-vk','ic-vk', '21', '14')
+
+			.row
+				.col-6
+					.form-site-wrap
+						.form-site-wrap__title Узнайте, как мы сделаем ваш проект
+						.form-site-wrap__text Оставьте заявку и мы свяжемся с вами, чтобы ответить на вопросы и показать примеры 
+
+						form.form-site
+							.form-site__item
+								.form-site__label Введите номер телефона
+
+								.select-social
+									.select-social__btns
+										.select-social__btn.js-select-social-btn.active(data-name="call")
+											+svg('ic-call','ic-call', '18', '19')
+											|Звонок
+
+										.select-social__btn.js-select-social-btn(data-name="telegram")
+											+svg('ic-telegram','ic-telegram', '17', '16')
+											|Telegram
+
+										.select-social__btn.js-select-social-btn(data-name="whatsapp")
+											+svg('ic-whatsapp','ic-whatsapp', '19', '20')
+											|WhatsApp
+									
+									.select-social__fields
+										.select-social__field.js-select-social-field.active(data-name="call")
+											input(type="text", placeholder="enter email", class="js-phone")
+
+										.select-social__field.js-select-social-field(data-name="telegram")
+											input(type="text", placeholder="enter telegram @example")
+
+										.select-social__field.js-select-social-field(data-name="whatsapp")
+											input(type="text", placeholder="enter whatsapp account")
+
+							.form-site__btn
+								input.btn(type="submit", value="Свяжитесь со мной")
+
+				.col-6
+					.map
+						iframe(src='https://yandex.ru/map-widget/v1/?um=constructor%3Aa4275554cb03d518a8c0b39f1fe134bb0264d6f966a73c4c508ccfa59c55f5b2&source=constructor' width='100%' height='600' frameborder='0')

@@ -1,1 +1,58 @@
 footer.footer
+	.container
+		.row
+			.col-5
+				.footer__logo
+					a(href="/")
+						img(src="/upload/logo.svg", alt="")
+				
+				.footer-contacts-wrap
+					.footer-contacts
+						.footer-contacts__icon.footer-contacts__icon_dark
+							+svg('ic-call','ic-call', '26', '27')
+
+						.footer-contacts__content
+							.footer-contacts__text
+								a(href="tel:+78412981888").footer-contacts__phone +7 (8412) 98-18-88
+
+							.footer-contacts__label работаем пн-пт с 8:00 до 17:00
+
+					.social.social_white
+						a(href="#").social__item.social__item_tg
+							+svg('ic-telegram','ic-telegram', '17', '16')
+
+						a(href="#").social__item.social__item_wh
+							+svg('ic-whatsapp','ic-whatsapp', '19', '20')
+
+				.footer-contacts
+					.footer-contacts__icon
+						+svg('ic-map-pin','ic-map-pin', '16', '20')
+
+					.footer-contacts__content
+						.footer-contacts__text г. Пенза, улица Калинина, 133
+						.footer-contacts__label адрес офиса
+				
+
+			.col-7
+				.footer__links
+					ul.footer-menu
+						-
+							var list=[
+								{text:'Что входит в проект'},
+								{text:'Типы проектов'},
+								{text:'Примеры работ'},
+								{text:'О материале'},
+								{text:'Как мы работаем'},
+								{text:'FAQ'},
+								{text:'Контакты'},
+							]
+						each item in list
+							li.footer-menu__item
+								a(href="#").footer-menu__link= item.text
+
+					.footer-links
+						.footer-links__item
+							a(href="#") Соглашение на обработку данных
+
+						.footer-links__item
+							a(href="#") Политика конфиденциальности

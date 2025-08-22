@@ -21,7 +21,10 @@ html(lang="ru")
 								+breadcrumbs(breadcrumbs)
 				
 				if pages && pageId && pages[pageId] && pages[pageId].h1
-					h1  #{pages[pageId].h1}
+					.container
+						.row
+							.col-12
+								h1  #{pages[pageId].h1}
 				block body
 			include ./_footer
 		script(src="/main.js" type="module")
