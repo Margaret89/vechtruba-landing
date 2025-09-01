@@ -29,3 +29,42 @@
 
 	&_white &__item{background: #fff;}
 }
+
+.social-wrap{
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	border-radius: 16px;
+	padding: 25px 30px;
+	background: var(--color-primary);
+
+	&__label{
+		font-size: 1.9rem;
+		color: #fff;
+	}
+}
+
+@media (max-width: 767px) {
+	.social{
+		gap: 10px;
+
+		&__item{
+			width: 42px;
+			height: 42px;
+		}
+	}
+}
+
+@media (max-width: 767px) {
+	.social-wrap{
+		flex-direction: column;
+		justify-content: center;
+		gap: 18px;
+		padding: 20px 24px;
+
+		&__label{
+			font-size: 1.7rem;
+			text-align: center;
+		}
+	}
+}

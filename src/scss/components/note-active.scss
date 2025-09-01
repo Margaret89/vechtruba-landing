@@ -1,0 +1,49 @@
+/*-------------- note-active -----------------*/
+.note-active{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 24px;
+	padding: 30px 40px;
+	background: var(--color-primary);
+	border-radius: 16px;
+	color: #fff;
+
+	&__title{
+		flex-shrink: 0;
+		width: 514px;
+		font-size: 2.8rem;
+		font-weight: bold;
+		line-height: 1.12;
+		letter-spacing: 0.8%;
+	}
+
+	&__text{
+		font-size: 1.9rem;
+		letter-spacing: 0.4%;
+	}
+
+	.btn{flex-shrink: 0;}
+}
+
+@media (max-width: 1279px) {
+	.note-active{
+		flex-direction: column;
+		text-align: center;
+		
+		&__title{width: auto;}
+	}
+}
+
+@media (max-width: 767px) {
+	.note-active{
+		gap: 16px;
+		margin-left: -30px;
+		margin-right: -30px;
+
+		&__title{font-size: 2.3rem;}
+		&__text{font-size: 1.7rem;}
+
+		.btn{padding: 0 30px;}
+	}
+}

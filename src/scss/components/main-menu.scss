@@ -19,6 +19,7 @@
 		line-height: 1.3;
 		color: var(--color-text);
 		text-decoration: none;
+		text-align: center;
 		transition: all 0.2s ease;
 	}
 
@@ -41,4 +42,30 @@
 
 	&__link:hover{color: var(--color-primary);}
 	&__link:hover::after{width: 100%;}
+}
+
+@media (max-width: 1279px) {
+	.main-menu{
+		&__item,
+		&__link{
+			font-size: 1.5rem;
+		}
+
+		&__link{padding: 10px;}
+	}
+}
+
+@media (max-width: 991px) {
+	.main-menu{
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 22px;
+
+		&__item,
+		&__link{
+			font-size: 1.7rem;
+		}
+
+		&__link{padding: 0;}
+	}
 }

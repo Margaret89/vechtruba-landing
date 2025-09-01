@@ -8,6 +8,54 @@ header.header
 							img(src="/upload/logo.svg", alt="")
 
 					.header__info
+						.header-contacts.d-none.d-lg-flex
+							.header-contacts__icon
+								+svg('ic-map-pin','ic-map-pin', '14', '18')
+
+							.header-contacts__content
+								.header-contacts__text г. Пенза, улица Калинина, 133
+								.header-contacts__label адрес офиса
+
+						.header-contacts.d-none.d-lg-flex
+							.header-contacts__icon.header-contacts__icon_dark
+								+svg('ic-call','ic-call', '18', '19')
+
+							.header-contacts__content
+								.header-contacts__text
+									a(href="tel:+78412981888").header-contacts__phone +7 (8412) 98-18-88
+
+								.header-contacts__label работаем пн-пт с 8:00 до 17:00 (Мск)
+
+						.social
+							a(href="#").social__item.social__item_tg
+								+svg('ic-telegram','ic-telegram', '17', '16')
+
+							a(href="#").social__item.social__item_wh
+								+svg('ic-whatsapp','ic-whatsapp', '19', '20')
+
+						.ic-hamburger.d-lg-none.js-btn-open-menu
+							span
+
+				.header__menu.js-header-menu
+					.ic-hamburger.active.d-lg-none.js-btn-close-menu
+						span
+
+					ul.main-menu
+						-
+							var list=[
+								{text:'Что входит в проект'},
+								{text:'Тип проекта'},
+								{text:'Модульная котельная'},
+								{text:'Наши проекты'},
+								{text:'Отзывы'},
+								{text:'Наш видеоблог'},
+								{text:'Контакты'},
+							]
+						each item in list
+							li.main-menu__item
+								a(href="#").main-menu__link= item.text
+
+					.header__info.d-lg-block
 						.header-contacts
 							.header-contacts__icon
 								+svg('ic-map-pin','ic-map-pin', '14', '18')
@@ -25,25 +73,3 @@ header.header
 									a(href="tel:+78412981888").header-contacts__phone +7 (8412) 98-18-88
 
 								.header-contacts__label работаем пн-пт с 8:00 до 17:00 (Мск)
-
-						.social
-							a(href="#").social__item.social__item_tg
-								+svg('ic-telegram','ic-telegram', '17', '16')
-
-							a(href="#").social__item.social__item_wh
-								+svg('ic-whatsapp','ic-whatsapp', '19', '20')
-
-				ul.main-menu
-					-
-						var list=[
-							{text:'Что входит в проект'},
-							{text:'Тип проекта'},
-							{text:'Модульная котельная'},
-							{text:'Наши проекты'},
-							{text:'Отзывы'},
-							{text:'Наш видеоблог'},
-							{text:'Контакты'},
-						]
-					each item in list
-						li.main-menu__item
-							a(href="#").main-menu__link= item.text

@@ -1,0 +1,29 @@
+/*-------------- company-data -----------------*/
+.company-data{
+	background: #ECF1F7;
+	padding: 70px 0;
+
+	p{
+		font-size: 2.6rem;
+		text-align: center;
+	}
+}
+
+@media (max-width: 1279px) {
+	.company-data{
+		p{font-size: 2rem;}
+	}
+}
+
+@media (max-width: 991px) {
+	.company-data{
+		p{font-size: 1.7rem;}
+	}
+}
+
+@media (max-width: 767px) {
+	.company-data{
+		padding: 50px 0;
+		p{font-size: 1.9rem;}
+	}
+}

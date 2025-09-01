@@ -1,0 +1,65 @@
+/*-------------- main-block -----------------*/
+.main-block{
+	&__content{
+		border-radius: 16px;
+		overflow: hidden;
+		background: #ECF1F7 url(../img/bg-equipment.png) no-repeat center right;
+	}
+
+	&__main{
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 24px;
+		padding: 80px;
+	}
+
+	&__info{width: 560px;}
+
+	&__text{
+		font-size: 2rem;
+		line-height: 1.36;
+		letter-spacing: 0.4%;
+		margin-top: 5px;
+	}
+
+	.note{margin-top: 24px;}
+}
+
+@media (max-width: 1279px) {
+	.main-block{
+		&__text{font-size: 1.8rem;}
+	}
+}
+
+@media (max-width: 991px) {
+	.main-block{
+		&__info{
+			width: 100%;
+			text-align: center;
+		}
+
+		&__main{flex-direction: column;}
+		&__content{background-position: bottom right;}
+
+		.video-block{align-self: flex-end;}
+	}
+}
+
+@media (max-width: 767px) {
+	.main-block{
+		&__content{
+			margin-left: -30px;
+			margin-right: -30px;
+			padding: 27px 30px;
+		}
+
+		&__main{
+			gap: 175px;
+			padding: 0;
+		}
+
+		&__text{font-size: 1.6rem;}
+		.note{margin-top: 14px;}
+	}
+}

@@ -20,15 +20,18 @@ block body
 									.note__img
 										img(src="/upload/note-img.png", alt="")
 
-									.note__content
-										.note__text Узнайте стоимость для вашего дома 
-											b за 5 минут без звонков
+									.note__text Узнайте стоимость для вашего дома 
+										b за 5 минут без звонков
 
-										a.btn Узнать стоимость
+									a(href="#", data-fancybox, data-src="#cost-project").btn Узнать стоимость
 
 							.video-block
-								.video-block__img
-									img(src="/upload/video.jpg", alt="")
+								a(href="https://www.youtube.com/watch?v=UdaQRvVTIqU", data-fancybox='').video-block__img-wrap
+									.video-block__img
+										img(src="/upload/video.jpg", alt="")
+
+									.video-block__play
+										+svg('ic-play','ic-play', '14', '17')
 								
 								.video-block__title Зачем нужен проект?
 								.video-block__text Смотрите разбор от главного инженера
@@ -57,8 +60,11 @@ block body
 					.main-projects__content
 						.main-projects__title
 							h2
-								span.text-color Что входит
+								span.text-color Что входит 
 								| в проект:
+
+						.main-projects__img
+							img(src="/upload/3d.png", alt="")
 
 						-
 							var list=[
@@ -79,9 +85,7 @@ block body
 								.project-content__content
 									.project-content__title= item.title
 									.project-content__text= item.text
-
-						.main-projects__img
-							img(src="/upload/3d.png", alt="")
+						
 						
 					.steps
 						.steps__head
@@ -111,27 +115,45 @@ block body
 			.row
 				.col-12
 					h3
-						span.text-color Сертифицированные дилеры
+						span.text-color Сертифицированные дилеры 
 						| 20+ ведущих брендов
 
 					p Наш оптовый отдел дает лучшие сроки и условия. Мы подбираем решения с учётом бюджета, доступности и дальнейшего обслуживания
 					
-				.partners-line
-					-
-						var list=[
-							{img:'buderus.jpg'},
-							{img:'navien.jpg'},
-							{img:'bosch.jpg'},
-							{img:'ferroli.jpg'},
-							{img:'electrolux.jpg'},
-							{img:'arderia.jpg'},
-							{img:'lemax.jpg'},
-							{img:'kiturami.jpg'},
-							{img:'konord.jpg'},
-						]
-					each item in list
-						.partners-line__item
-							img(src="/upload/"+item.img, alt="")
+		.partners-line
+			.partners-line__list
+				-
+					var list=[
+						{img:'buderus.jpg'},
+						{img:'navien.jpg'},
+						{img:'bosch.jpg'},
+						{img:'ferroli.jpg'},
+						{img:'electrolux.jpg'},
+						{img:'arderia.jpg'},
+						{img:'lemax.jpg'},
+						{img:'kiturami.jpg'},
+						{img:'konord.jpg'},
+					]
+				each item in list
+					.partners-line__item
+						img(src="/upload/"+item.img, alt="")
+
+			.partners-line__list
+				-
+					var list=[
+						{img:'buderus.jpg'},
+						{img:'navien.jpg'},
+						{img:'bosch.jpg'},
+						{img:'ferroli.jpg'},
+						{img:'electrolux.jpg'},
+						{img:'arderia.jpg'},
+						{img:'lemax.jpg'},
+						{img:'kiturami.jpg'},
+						{img:'konord.jpg'},
+					]
+				each item in list
+					.partners-line__item
+						img(src="/upload/"+item.img, alt="")
 
 	section.type-project.m-indent
 		.container
@@ -156,51 +178,53 @@ block body
 							{label:'для домов от 150 м²',label_color:'green', img:'project3.png', title:'Индивидуальный проект', note:'Без доплат: консультации, сопровождение, гарантия по договору.', text:'Для домов более 150 м² или со сложными инженерными решениями', price:'Индивидуально'},
 						]
 					each item in list
-						.col-4
+						.col-md-4
 							.project-item
 								.project-item__label(class=item.label_color?'project-item__label_'+item.label_color:'')= item.label
 
-								.project-item__img
-									img(src="/upload/"+item.img, alt="")
+								.project-item__img-wrap
+									.project-item__img
+										img(src="/upload/"+item.img, alt="")
 
 								.project-item__title= item.title
-								.project-item__note item.note
+								.project-item__note= item.note
 								.project-item__text= item.text
 
 								.project-item__price
-									+svg('ic-tag','ic-tag', '15', '15')
+									.project-item__price-icon
+										+svg('ic-tag','ic-tag', '15', '15')
 									= item.price
 
-								a(href="#").btn Получить персональную цену
+								a(href="#", data-fancybox, data-src="#form-project").btn Получить персональную цену
 			
 	section.advant-card-wrap.m-indent
 		.container
 			.row
-				.col-8.offset-2
+				.col-xl-8.offset-xl-2
 					h2
 						span.text-color Почему все наши проекты 
 						|выполняются с модульной котельной?
 
 					p
 						|Модульная котельная —  
-						span.text-color экономия до 30%
+						span.text-color  экономия до 30% 
 						| на материалах и монтаже
 					
-		.advant-card-list
-			.container
-				.row
-					.col-4
+		.advant-slider-wrap.d-md-none
+			.swiper.advant-slider.js-advant-slider
+				.swiper-wrapper
+					.swiper-slide.advant-slider__item
 						.advant-card
 							.advant-card__icon
 								img(src="/upload/prof.svg", alt="")
 
 							.advant-card__title
-								span.text-color Профессиональная
+								span.text-color Профессиональная 
 								| разработка
 
 							.advant-card__text Конструкция и решения, созданные инженерами с 25-летним опытом. Эффективная автоматика.
 
-					.col-4
+					.swiper-slide.advant-slider__item
 						.advant-card
 							.advant-card__icon
 								img(src="/upload/compactness.svg", alt="")
@@ -208,23 +232,71 @@ block body
 							.advant-card__title Эстетика и 
 								span.text-color компактность
 
-							.advant-card__text Заводское качество сборки, аккуратное исполнение, занимает <1 м² — идеальный узел.
+							.advant-card__text Заводское качество сборки, аккуратное исполнение, занимает &lt;1 м² — идеальный узел.
 
-					.col-4
+					.swiper-slide.advant-slider__item
 						.advant-card
 							.advant-card__icon
 								img(src="/upload/comfort.svg", alt="")
 
 							.advant-card__title
-								span.text-color Удобство
+								span.text-color Удобство 
 								| обслуживания
 
 							.advant-card__text Одобрено сервисными инженерами, всё доступно и продумано для ремонта и ТО. Сборка всего за 1 день!
 
-					.col-4
-						a(href="#").video-card(style="background-image: url(/upload/bg-video.jpg)")
+			.container
+				.row
+					.col-12
+						.advant-slider-wrap__bottom
+							.swiper-button-prev.js-advant-slider-prev
+								+svg('ic-arrow-left','ic-arrow-left', '8', '14')
+
+							.advant-slider-wrap__note листайте, чтобы увидеть все преимущества
+							
+							.swiper-button-next.js-advant-slider-next
+								+svg('ic-arrow-right','ic-arrow-right', '8', '14')
+
+		.advant-card-list
+			.container
+				.row
+					.col-md-6.col-xl-3.d-none.d-md-block
+						.advant-card
+							.advant-card__icon
+								img(src="/upload/prof.svg", alt="")
+
+							.advant-card__title
+								span.text-color Профессиональная 
+								| разработка
+
+							.advant-card__text Конструкция и решения, созданные инженерами с 25-летним опытом. Эффективная автоматика.
+
+					.col-md-6.col-xl-3.d-none.d-md-block
+						.advant-card
+							.advant-card__icon
+								img(src="/upload/compactness.svg", alt="")
+
+							.advant-card__title Эстетика и 
+								span.text-color компактность
+
+							.advant-card__text Заводское качество сборки, аккуратное исполнение, занимает &lt;1 м² — идеальный узел.
+
+					.col-md-6.col-xl-3.d-none.d-md-block
+						.advant-card
+							.advant-card__icon
+								img(src="/upload/comfort.svg", alt="")
+
+							.advant-card__title
+								span.text-color Удобство 
+								| обслуживания
+
+							.advant-card__text Одобрено сервисными инженерами, всё доступно и продумано для ремонта и ТО. Сборка всего за 1 день!
+
+					.col-md-6.col-xl-3
+						a(href="https://www.youtube.com/watch?v=UdaQRvVTIqU", data-fancybox='').video-card(style="background-image: url(/upload/bg-video.jpg)")
 							.video-card__content
 								.video-card__icon
+									+svg('ic-play','ic-play', '14', '17')
 
 								.video-card__info
 									.video-card__title Смотреть видео:
@@ -248,6 +320,7 @@ block body
 						var list=[
 							{
 								img:'woman.jpg',
+								img_mob:'woman-mobile.jpg',
 								years:'12 лет',
 								name:'Екатерина',
 								post:'руководитель отдела проектирования',
@@ -255,6 +328,7 @@ block body
 							},
 							{
 								img:'man.jpg',
+								img_mob:'man-mobile.jpg',
 								years:'17 лет',
 								name:'Дмитрий',
 								post:'главный инженер',
@@ -262,11 +336,13 @@ block body
 							},
 						]
 					each item in list
-						.col-6
+						.col-lg-6
 							.person
 								.person__main
 									.person__img
-										img(src="/upload/"+item.img, alt="")
+										picture
+											source(srcset="/upload/"+item.img_mob, media='(max-width: 767px)')
+											img(src="/upload/"+item.img, alt="")
 
 									.person__data
 										.person__years= item.years
@@ -280,25 +356,25 @@ block body
 										if(item.text == 1)
 											ul.list-color
 												li
-													b Аттестованный эксперт
+													b Аттестованный эксперт 
 													| по промышленной безопасности в федеральной службе по экологическому, технологическому и атомному надзору.
 
 												li
-													b Подтверждённая квалификация
+													b Подтверждённая квалификация 
 													| 7-го уровня в организации архитектурно-строительного проектирования.
 
 										else if(item.text == 2)
 											ul.list-color
 												li
-													b Спикер международной выставки
+													b Спикер международной выставки 
 													| Aquatherm по промышленному оборудованию и инженерным системам.
 												
 												li
-													b Главный инженер и учредитель компании
+													b Главный инженер и учредитель компании 
 													| “Вечные Трубы”.
 
 												li
-													b Более 2 000
+													b Более 2 000 
 													| выполненных проектов
 	
 		.gallery
@@ -307,24 +383,24 @@ block body
 					.col-12
 						.gallery__note
 							+svg('ic-zoom-in','ic-zoom-in', '20', '21')
-							|нажмите на фото, чтобы их увеличить
+							|нажмите на фото, чтобы&nbsp;их увеличить
 					
-				.row
-					.gallery__list
+				.gallery__list
+					.row
 						-
 							var list=[
-								{img:'gallery1.jpg', text:'Проект водоснабжения и отопления с теплым полом'},
-								{img:'gallery2.jpg', text:'Проект отопления квартиры 150 кв. м.'},
-								{img:'gallery3.jpg', text:'Проект насосной станции'},
-								{img:'gallery4.jpg', text:'Проект вентиляции бассейна'},
-								{img:'gallery5.jpg', text:'Проект водоснабжения квартиры'},
-								{img:'gallery6.jpg', text:'Проект вентиляции бассейна'},
-								{img:'gallery7.jpg', text:'Проект дымовых труб'},
-								{img:'gallery8.jpg', text:'Проект вентиляции кафе'},
+								{img:'gallery1.jpg', img_big:'gallery1-big.png', text:'Проект водоснабжения и отопления с теплым полом'},
+								{img:'gallery2.jpg', img_big:'gallery2-big.png', text:'Проект отопления квартиры 150 кв. м.'},
+								{img:'gallery3.jpg', img_big:'gallery3-big.png', text:'Проект насосной станции'},
+								{img:'gallery4.jpg', img_big:'gallery4-big.png', text:'Проект вентиляции бассейна'},
+								{img:'gallery5.jpg', img_big:'gallery5-big.png', text:'Проект водоснабжения квартиры'},
+								{img:'gallery6.jpg', img_big:'gallery6-big.png', text:'Проект вентиляции бассейна'},
+								{img:'gallery7.jpg', img_big:'gallery7-big.png', text:'Проект дымовых труб'},
+								{img:'gallery8.jpg', img_big:'gallery8-big.png', text:'Проект вентиляции кафе'},
 							]
 						each item in list
-							.col-3
-								a(href="/upload/"+item.img, data-fancybox='reviews').gallery__item
+							.col-md-4.col-lg-3
+								a(href="/upload/"+item.img_big, data-fancybox='reviews').gallery__item
 									.gallery__img-wrap
 										.gallery__img
 											img(src="/upload/"+item.img, alt="")
@@ -341,7 +417,7 @@ block body
 			.row
 				.col-12
 					h2
-						span.text-color Наши клиенты высоко
+						span.text-color Наши клиенты высоко 
 						| оценивают нас
 
 					p за индивидуальный подход и подбор оптимальных решений
@@ -350,43 +426,47 @@ block body
 						.reviews-advant__label нашим клиентам особенно нравится:
 
 						.reviews-advant__list
-							.reviews-advant
-								.reviews-advant__icon
-									+svg('ic-check','ic-check', '12', '10')
+							.row
+								.col-lg-4
+									.reviews-advant-item
+										.reviews-advant-item__icon
+											+svg('ic-check','ic-check', '12', '10')
 
-								.reviews-advant__text “К ним приходишь с идеей, 
-									b а выходишь с проектом, расчетом и желанием строить”
+										.reviews-advant-item__text “К ним приходишь с идеей, 
+											b а выходишь с проектом, расчетом и желанием строить”
 
-							.reviews-advant
-								.reviews-advant__icon
-									+svg('ic-check','ic-check', '12', '10')
+								.col-lg-4
+									.reviews-advant-item
+										.reviews-advant-item__icon
+											+svg('ic-check','ic-check', '12', '10')
 
-								.reviews-advant__text
-									b “Всем рекомендую, профессионалы,
-									| всё четко и грамотно”
+										.reviews-advant-item__text
+											b “Всем рекомендую, профессионалы, 
+											| всё четко и грамотно”
 
-							.reviews-advant
-								.reviews-advant__icon
-									+svg('ic-check','ic-check', '12', '10')
+								.col-lg-4
+									.reviews-advant-item
+										.reviews-advant-item__icon
+											+svg('ic-check','ic-check', '12', '10')
 
-								.reviews-advant__text
-									b «Советовали, вносили пожелания и терпеливо
-									| корректировали мои правки»
+										.reviews-advant-item__text
+											b «Советовали, вносили пожелания и терпеливо 
+											| корректировали мои правки»
 
 						.reviews-slider-wrap
 							.swiper.reviews-slider.js-reviews-slider
 								.swiper-wrapper
 									-
 										var list=[
-											{img:'reviews1.jpg'},
-											{img:'reviews2.jpg'},
-											{img:'reviews3.jpg'},
-											{img:'reviews2.jpg'},
-											{img:'reviews3.jpg'},
+											{img:'reviews1.jpg', img_big:'reviews1-big.png'},
+											{img:'reviews2.jpg', img_big:'reviews2-big.png'},
+											{img:'reviews3.jpg', img_big:'reviews3-big.png'},
+											{img:'reviews2.jpg', img_big:'reviews2-big.png'},
+											{img:'reviews3.jpg', img_big:'reviews3-big.png'},
 										]
 									each item in list
 										.swiper-slide.reviews-slider__item
-											a(href="/upload/"+item.img, data-fancybox='reviews').reviews-slider__img
+											a(href="/upload/"+item.img_big, data-fancybox='reviews').reviews-slider__img
 												img(src="/upload/"+item.img, alt="")
 
 							.reviews-slider-wrap__bottom
@@ -395,7 +475,7 @@ block body
 
 								.reviews-slider-wrap__note
 									+svg('ic-zoom-in','ic-zoom-in', '20', '21')
-									|нажмите на фото, чтобы их увеличить
+									|нажмите на фото, чтобы&nbsp;их увеличить
 								
 								.swiper-button-next.js-reviews-slider-next
 									+svg('ic-arrow-right','ic-arrow-right', '8', '14')
@@ -405,7 +485,7 @@ block body
 			.row
 				.col-12
 					h2
-						span.text-color Прозрачный
+						span.text-color Прозрачный 
 						| процесс работы:
 
 					.process-list
@@ -413,27 +493,27 @@ block body
 							var list=[
 								{
 									icon:'agreement.svg',
-									title:'Согласование',
+									title:'1. Согласование',
 									text:'Обсуждаем все детали и пожелания по вашему проекту, отвечаем на вопросы и помогаем выбрать оптимальные решения.'
 								},
 								{
 									icon:'docs-list.svg',
-									title:'Техническое задание',
+									title:'2. Техническое задание',
 									text:'Формируем чёткое и подробное ТЗ, в котором фиксируются все параметры и требования к будущей системе.'
 								},
 								{
 									icon:'contract.svg',
-									title:'Договор и предоплата',
+									title:'3. Договор и предоплата',
 									text:'Заключаем официальный договор с прозрачными условиями, после чего вы вносите предоплату для старта работ.'
 								},
 								{
 									icon:'edits.svg',
-									title:'Правки',
+									title:'4. Правки',
 									text:'Показываем предварительный проект и бесплатно вносим все необходимые корректировки по вашим пожеланиям.'
 								},
 								{
 									icon:'project.svg',
-									title:'Сдача проекта',
+									title:'5. Сдача проекта',
 									text:'Передаём полный комплект документации, помогаем с консультациями по реализации и контролю монтажа.'
 								},
 							]
@@ -449,18 +529,19 @@ block body
 						.note-active__title Получите пример сметы и&nbsp;реализации проектов
 						.note-active__text Оставьте свои данные и мы пришлем их вам в течение дня
 
-						a(href="#").btn Получить примеры и смету
+						a(href="#", data-fancybox, data-src="#form-project").btn Получить примеры и смету
 	
 	section.video-wrap.m-indent
 		.container
 			.video-wrap__top
 				.row
-					.col-7
+					.col-lg-6.col-xl-7
 						h2
 							|Делимся опытом 
-							span.text-color и экспертным мнением
+							br
+							span.text-color и&nbsp;экспертным мнением
 
-					.col-5
+					.col-lg-6.col-xl-5
 						.social-wrap
 							.social-wrap__label Подписывайтесь, чтобы следить за обновлениями и советами
 
@@ -474,70 +555,53 @@ block body
 								a(href="#").social__item.social__item_vk
 									+svg('ic-vk','ic-vk', '21', '14')
 
-				.row
-					.col-12
-						.reviews-slider-wrap
-							.swiper.video-slider.js-video-slider
-								.swiper-wrapper
-									-
-										var list=[
-											{img:'video1.jpg', video:'https://www.youtube.com/watch?v=z2X2HaTvkl8', title:'Как выбрать материал для котельной?'},
-											{img:'video2.jpg', video:'https://www.youtube.com/watch?v=UdaQRvVTIqU', title:'Как выбрать материал для котельной?'},
-											{img:'video3.jpg', video:'https://www.youtube.com/watch?v=LXb3EKWsInQ', title:'Как выбрать материал для котельной?'},
-											{img:'video4.jpg', video:'https://www.youtube.com/watch?v=UdaQRvVTIqU', title:'Как выбрать материал для котельной?'},
-											{img:'video2.jpg', video:'https://www.youtube.com/watch?v=UdaQRvVTIqU', title:'Как выбрать материал для котельной?'},
-											{img:'video3.jpg', video:'https://www.youtube.com/watch?v=LXb3EKWsInQ', title:'Как выбрать материал для котельной?'},
-										]
-									each item in list
-										.swiper-slide.video-slider__item
-											a(href=item.video, data-fancybox='video').video-slider__img
-												img(src="/upload/"+item.img, alt="")
+			.row
+				.col-12
+					.video-slider-wrap
+						.swiper.video-slider.js-video-slider
+							.swiper-wrapper
+								-
+									var list=[
+										{img:'video1.jpg', video:'https://www.youtube.com/watch?v=z2X2HaTvkl8', title:'Как выбрать материал для котельной?'},
+										{img:'video2.jpg', video:'https://www.youtube.com/watch?v=UdaQRvVTIqU', title:'Как выбрать материал для котельной?'},
+										{img:'video3.jpg', video:'https://www.youtube.com/watch?v=LXb3EKWsInQ', title:'Как выбрать материал для котельной?'},
+										{img:'video4.jpg', video:'https://www.youtube.com/watch?v=UdaQRvVTIqU', title:'Как выбрать материал для котельной?'},
+										{img:'video2.jpg', video:'https://www.youtube.com/watch?v=UdaQRvVTIqU', title:'Как выбрать материал для котельной?'},
+										{img:'video3.jpg', video:'https://www.youtube.com/watch?v=LXb3EKWsInQ', title:'Как выбрать материал для котельной?'},
+									]
+								each item in list
+									.swiper-slide.video-slider__item
+										a(href=item.video, data-fancybox='video').video-slider__img
+											img(src="/upload/"+item.img, alt="")
 
-											e.video-slider__title= item.title
+											.video-slider__play
+												+svg('ic-play','ic-play', '14', '17')
 
-							.video-slider-wrap__bottom
-								.swiper-button-prev.js-video-slider-prev
-									+svg('ic-arrow-left','ic-arrow-left', '8', '14')
+											.video-slider__title= item.title
 
-								.video-slider-wrap__note
-									|листайте, чтобы увидеть больше видео
-								
-								.swiper-button-next.js-video-slider-next
-									+svg('ic-arrow-right','ic-arrow-right', '8', '14')
-	
-	section.map-wrap.m-indent
+						.video-slider-wrap__bottom
+							.swiper-button-prev.js-video-slider-prev
+								+svg('ic-arrow-left','ic-arrow-left', '8', '14')
+
+							.video-slider-wrap__note
+								|листайте, чтобы увидеть больше видео
+							
+							.swiper-button-next.js-video-slider-next
+								+svg('ic-arrow-right','ic-arrow-right', '8', '14')
+
+	section.map-wrap.mt-indent
 		.container
 			.row
-				.col-7
-					h2
-						Делимся опытом 
-						span.text-color и экспертным мнением
-
-				.col-5
-					.social-wrap
-						.social-wrap__label Подписывайтесь, чтобы следить за обновлениями и советами
-
-						.social.social_white
-							a(href="#").social__item.social__item_tg
-								+svg('ic-telegram','ic-telegram', '17', '16')
-
-							a(href="#").social__item.social__item_youtube
-								+svg('ic-youtube','ic-youtube', '20', '14')
-
-							a(href="#").social__item.social__item_vk
-								+svg('ic-vk','ic-vk', '21', '14')
-
-			.row
-				.col-6
+				.col-lg-6.order-2.order-lg-1
 					.form-site-wrap
 						.form-site-wrap__title Узнайте, как мы сделаем ваш проект
 						.form-site-wrap__text Оставьте заявку и мы свяжемся с вами, чтобы ответить на вопросы и показать примеры 
 
 						form.form-site
 							.form-site__item
-								.form-site__label Введите номер телефона
+								.form-site__label Как с вами связаться?
 
-								.select-social
+								.select-social.js-select-social
 									.select-social__btns
 										.select-social__btn.js-select-social-btn.active(data-name="call")
 											+svg('ic-call','ic-call', '18', '19')
@@ -553,17 +617,151 @@ block body
 									
 									.select-social__fields
 										.select-social__field.js-select-social-field.active(data-name="call")
-											input(type="text", placeholder="enter email", class="js-phone")
+											input(type="text", placeholder="Введите номер телефона", class="js-phone")
 
 										.select-social__field.js-select-social-field(data-name="telegram")
-											input(type="text", placeholder="enter telegram @example")
+											input(type="text", placeholder="Введите аккаунт с @")
+
+											label.input-check.input-check_white
+												input(type='checkbox')
+												span.input-check__mark
+													+svg('ic-check','ic-check', '16', '14')
+												span.input-check__text Не перезванивать
 
 										.select-social__field.js-select-social-field(data-name="whatsapp")
-											input(type="text", placeholder="enter whatsapp account")
+											input(type="text", placeholder="Введите аккаунт whatsapp")
+
+											label.input-check.input-check_white
+												input(type='checkbox')
+												span.input-check__mark
+													+svg('ic-check','ic-check', '16', '14')
+												span.input-check__text Не перезванивать
 
 							.form-site__btn
 								input.btn(type="submit", value="Свяжитесь со мной")
 
-				.col-6
+							.form-site__note Нажимая на кнопку, вы соглашаетесь с политикой конфиденциальности и условиями обработки данных
+
+				.col-lg-6.order-1.order-lg-2
 					.map
 						iframe(src='https://yandex.ru/map-widget/v1/?um=constructor%3Aa4275554cb03d518a8c0b39f1fe134bb0264d6f966a73c4c508ccfa59c55f5b2&source=constructor' width='100%' height='600' frameborder='0')
+
+	#cost-project(style='display: none;')
+		.popup-form
+			.form-site-wrap
+				.form-site-wrap__title Узнайте стоимость проекта
+				.form-site-wrap__text Оставьте свои контактные данные для получения финальной цены со скидкой. Максимальная скидка предоставляется после изучения проекта вашего дома.
+
+				form.form-site
+					.form-site__item
+						.form-site__label Как с вами связаться?
+
+						.select-social.js-select-social
+							.select-social__btns
+								.select-social__btn.js-select-social-btn.active(data-name="telegram")
+									+svg('ic-telegram','ic-telegram', '17', '16')
+									|Telegram
+
+								.select-social__btn.js-select-social-btn(data-name="whatsapp")
+									+svg('ic-whatsapp','ic-whatsapp', '19', '20')
+									|WhatsApp
+
+								.select-social__btn.js-select-social-btn(data-name="call")
+									+svg('ic-call','ic-call', '18', '19')
+									|Звонок
+
+							
+							.select-social__fields
+								.select-social__field.js-select-social-field.active(data-name="telegram")
+									input(type="text", placeholder="Введите аккаунт с @")
+
+									label.input-check.input-check_white
+										input(type='checkbox')
+										span.input-check__mark
+											+svg('ic-check','ic-check', '16', '14')
+										span.input-check__text Не перезванивать
+
+								.select-social__field.js-select-social-field(data-name="whatsapp")
+									input(type="text", placeholder="Введите аккаунт whatsapp")
+
+									label.input-check.input-check_white
+										input(type='checkbox')
+										span.input-check__mark
+											+svg('ic-check','ic-check', '16', '14')
+										span.input-check__text Не перезванивать
+
+								.select-social__field.js-select-social-field(data-name="call")
+									input(type="text", placeholder="Введите номер телефона", class="js-phone")
+
+					.form-site__btn
+						input.btn(type="submit", value="Свяжитесь со мной")
+
+					.form-site__note Нажимая на кнопку, вы соглашаетесь с политикой конфиденциальности и условиями обработки данных
+
+	#form-project(style='display: none;')
+		.popup-form
+			.form-site-wrap
+				.form-site-wrap__title Получите примеры со сметой
+				.form-site-wrap__text Укажите ваши контактные данные для отправки примера сметы и реального проекта.
+
+				form.form-site
+					.form-site__item
+						.form-site__label Как с вами связаться?
+
+						.select-social.js-select-social
+							.select-social__btns
+								.select-social__btn.js-select-social-btn.active(data-name="telegram")
+									+svg('ic-telegram','ic-telegram', '17', '16')
+									|Telegram
+
+								.select-social__btn.js-select-social-btn(data-name="whatsapp")
+									+svg('ic-whatsapp','ic-whatsapp', '19', '20')
+									|WhatsApp
+
+								.select-social__btn.js-select-social-btn(data-name="call")
+									+svg('ic-call','ic-call', '18', '19')
+									|Звонок
+
+							
+							.select-social__fields
+								.select-social__field.js-select-social-field.active(data-name="telegram")
+									input(type="text", placeholder="Введите аккаунт с @")
+
+									label.input-check.input-check_white
+										input(type='checkbox')
+										span.input-check__mark
+											+svg('ic-check','ic-check', '16', '14')
+										span.input-check__text Не перезванивать
+
+								.select-social__field.js-select-social-field(data-name="whatsapp")
+									input(type="text", placeholder="Введите аккаунт whatsapp")
+
+									label.input-check.input-check_white
+										input(type='checkbox')
+										span.input-check__mark
+											+svg('ic-check','ic-check', '16', '14')
+										span.input-check__text Не перезванивать
+
+								.select-social__field.js-select-social-field(data-name="call")
+									input(type="text", placeholder="Введите номер телефона", class="js-phone")
+
+					.form-site__btn
+						input.btn(type="submit", value="Свяжитесь со мной")
+
+					.form-site__note Нажимая на кнопку, вы соглашаетесь с политикой конфиденциальности и условиями обработки данных
+
+				.social-wrap
+					.social-wrap__label Или напишите нам:
+
+					.social.social_white
+						a(href="#").social__item.social__item_tg
+							+svg('ic-telegram','ic-telegram', '17', '16')
+
+						a(href="#").social__item.social__item_wh
+							+svg('ic-whatsapp','ic-whatsapp', '19', '20')
+
+					
+//- #msg-success(style='display: none;')
+//- 	.success-alert.js-success-alert
+//- 		.success-alert__title.js-success-alert-title Ваше сообщение отправлено!
+//- 		.success-alert__text.js-success-alert-text В ближайшее время с вами свяжется наш менеджер и обсудит все детали.

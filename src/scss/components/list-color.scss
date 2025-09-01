@@ -1,0 +1,36 @@
+/*-------------- list-color -----------------*/
+.list-color{
+	padding: 0 0 0 20px;
+	list-style: none;
+
+	li{
+		list-style: none;
+		&:not(:last-child){margin-bottom: 15px;}
+
+		&::before{
+			content: '';
+			display: inline-block;
+			vertical-align: middle;
+			width: 8px;
+			height: 8px;
+			border-radius: 50%;
+			background: var(--color-primary);
+			margin: -4px 12px 0 -20px;
+		}
+	}
+}
+
+@media (max-width: 767px) {
+	.list-color{
+		padding: 0 0 0 14px;
+	
+		li{
+			&::before{
+				width: 6px;
+				height: 6px;
+				margin: -4px 8px 0 -14px;
+			}
+		}
+	}
+	
+}

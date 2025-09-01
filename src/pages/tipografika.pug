@@ -52,8 +52,29 @@ block body
 				br
 				br
 				br
+				div.h2 Списки
+				ul.list-color
+					li Ненумерованный список
+					li Ненумерованный список
+					li Ненумерованный список
+					li Ненумерованный список
+
+
+				br
+				br
+				br
 				div.h2 Кнопки
 				a.btn(href='#') Кнопка
+
+				br
+				br
+				br
+				.h2 Нестандартный checkbox
+				label.input-check
+					input(type='checkbox')
+					span.input-check__mark
+						+svg('ic-check','ic-check', '16', '14')
+					span.input-check__text Текст
 
 				br
 				br
@@ -118,3 +139,8 @@ block body
 						.type-icon__img
 							+svg('ic-vk','ic-vk', '21', '14')
 						.type-icon__name ic-vk
+
+					.type-icon__item
+						.type-icon__img
+							+svg('ic-play','ic-play', '14', '17')
+						.type-icon__name ic-play

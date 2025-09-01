@@ -1,0 +1,67 @@
+/*-------------- ic-burger -----------------*/
+.ic-hamburger{
+	flex-shrink: 0;
+	display: inline-block;
+	vertical-align: middle;
+	position: relative;
+	overflow: hidden;
+	margin: 0;
+	padding: 0;
+	width: 42px;
+	height: 42px;
+	font-size: 0;
+	text-indent: -9999px;
+	appearance: none;
+	box-shadow: none;
+	border: 1px solid #C5D4E6;
+	border-radius: 12px;
+	cursor: pointer;
+
+	&:focus{outline: none;}
+	
+	span {
+		display: block;
+		width: calc(100% - 20px);
+		height: 2px;
+		border-radius: 1px;
+		position: absolute;
+		top: 19px;
+		left: 10px;
+		background: var(--color-primary);
+		transition: background-color 0.2s ease 0s;
+	}
+	
+	span::before,
+	span::after {
+		content: "";
+		width: 100%;
+		position: absolute;
+		display: block;
+		left: 0;
+		height: 2px;
+		border-radius: 1px;
+		background: var(--color-primary);
+		transition: background-color 0.2s ease 0s;
+	}
+	
+	span::before {top: -6px;}
+	span::after {bottom: -6px;}
+	
+	span::before {transition: top 0.3s ease 0.3s, transform 0.3s ease 0s;}
+	span::after {transition: bottom 0.3s ease 0.3s, transform 0.3s ease 0s;}
+
+	&.active span {background: none;}
+	
+	&.active span::before {
+		top: 0;
+		transform: rotate(45deg);
+	}
+	
+	&.active span::after {
+		bottom: 0;
+		transform: rotate(-45deg);
+	}
+	
+	&.active span::before {transition: top 0.3s ease 0s, transform 0.3s ease 0.3s;}
+	&.active span::after {transition: bottom 0.3s ease 0s, transform 0.3s ease 0.3s;}
+}
