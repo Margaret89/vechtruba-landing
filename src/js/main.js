@@ -113,3 +113,19 @@ if(document.querySelector('.js-btn-close-menu')){
 		document.querySelector('.js-header-menu').classList.remove('open');
 	})
 }
+
+// Плавный переход к ссылке
+if (document.querySelector('.js-link-move')) {
+	document.querySelectorAll(".js-link-move").forEach(function(btn){
+		btn.onclick = function(event){
+			event.preventDefault();
+			const id = btn.getAttribute('href');
+
+			if (document.querySelector('#'+id)) {
+				document.querySelector('#'+id).scrollIntoView({
+					behavior: 'smooth'
+				});
+			}
+		}
+	});
+}

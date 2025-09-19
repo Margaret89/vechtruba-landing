@@ -18,10 +18,10 @@ footer.footer
 							.footer-contacts__label работаем пн-пт с 8:00 до 17:00
 
 					.social.social_white
-						a(href="#").social__item.social__item_tg
+						a(href="https://t.me/vechtruba_manager", target="_blank").social__item.social__item_tg
 							+svg('ic-telegram','ic-telegram', '17', '16')
 
-						a(href="#").social__item.social__item_wh
+						a(href="https://wa.me/79374401621", target="_blank").social__item.social__item_wh
 							+svg('ic-whatsapp','ic-whatsapp', '19', '20')
 
 				.footer-contacts
@@ -38,13 +38,13 @@ footer.footer
 					ul.footer-menu
 						-
 							var list=[
-								{text:'Что входит в проект'},
-								{text:'Типы проектов'},
-								{text:'Примеры работ'},
-								{text:'О материале'},
-								{text:'Как мы работаем'},
-								{text:'FAQ'},
-								{text:'Контакты'},
+								{link:'main-projects', text:'Что входит в проект'},
+								{link:'type-project', text:'Тип проекта'},
+								{link:'modular-boiler', text:'Модульная котельная'},
+								{link:'our-projects', text:'Наши проекты'},
+								{link:'reviews', text:'Отзывы'},
+								{link:'video', text:'Наш видеоблог'},
+								{link:'contacts', text:'Контакты'},
 							]
 						each item in list
 							li.footer-menu__item

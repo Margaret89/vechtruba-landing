@@ -27,10 +27,10 @@ header.header
 								.header-contacts__label работаем пн-пт с 8:00 до 17:00 (Мск)
 
 						.social
-							a(href="#").social__item.social__item_tg
+							a(href="https://t.me/vechtruba_manager", target="_blank").social__item.social__item_tg
 								+svg('ic-telegram','ic-telegram', '17', '16')
 
-							a(href="#").social__item.social__item_wh
+							a(href="https://wa.me/79374401621", target="_blank").social__item.social__item_wh
 								+svg('ic-whatsapp','ic-whatsapp', '19', '20')
 
 						.ic-hamburger.d-lg-none.js-btn-open-menu
@@ -43,19 +43,19 @@ header.header
 					ul.main-menu
 						-
 							var list=[
-								{text:'Что входит в проект'},
-								{text:'Тип проекта'},
-								{text:'Модульная котельная'},
-								{text:'Наши проекты'},
-								{text:'Отзывы'},
-								{text:'Наш видеоблог'},
-								{text:'Контакты'},
+								{link:'main-projects', text:'Что входит в проект'},
+								{link:'type-project', text:'Тип проекта'},
+								{link:'modular-boiler', text:'Модульная котельная'},
+								{link:'our-projects', text:'Наши проекты'},
+								{link:'reviews', text:'Отзывы'},
+								{link:'video', text:'Наш видеоблог'},
+								{link:'contacts', text:'Контакты'},
 							]
 						each item in list
 							li.main-menu__item
-								a(href="#").main-menu__link= item.text
+								a(href=item.link).main-menu__link.js-link-move= item.text
 
-					.header__info.d-lg-block
+					.header__info.d-lg-none
 						.header-contacts
 							.header-contacts__icon
 								+svg('ic-map-pin','ic-map-pin', '14', '18')

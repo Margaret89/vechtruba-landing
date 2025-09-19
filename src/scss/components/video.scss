@@ -98,6 +98,11 @@
 }
 
 @media (max-width: 1279px) {
+	.video-wrap{
+		.social{flex-wrap: wrap;}
+	}
+
+	
 	.video-slider-wrap{
 		&__note{font-size: 1.7rem;}
 	}
@@ -107,6 +112,12 @@
 			padding: 16px;
 			font-size: 1.5rem;
 		}
+	}
+}
+
+@media (max-width: 991px) {
+	.video-wrap{
+		.social{flex-shrink: 0;}
 	}
 }
 

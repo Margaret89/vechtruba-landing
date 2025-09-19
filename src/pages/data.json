@@ -4,6 +4,10 @@
 			"href": "main.html",
 			"title":"Главная"
 		},
+		"main2":{
+			"href": "main2.html",
+			"title":"Главная (тип 2)"
+		},
 		"tipografika":{
 			"href": "tipografika.html",
 			"title":"Типографика",

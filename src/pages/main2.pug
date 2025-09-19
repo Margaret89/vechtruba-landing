@@ -1,7 +1,7 @@
 extends tmpl/_layout
 
 block vars
-	- var pageId = 'main'
+	- var pageId = 'main2'
 
 block body
 	section.main-block.mb-indent
@@ -173,8 +173,8 @@ block body
 				.row
 					-
 						var list=[
-							{label:'классическое решение', img:'project1.png', title:'Только котельная', note:'Без доплат: консультации, сопровождение, гарантия по договору.', text:'Подходит, если тёплые полы и радиаторы уже установлены или не нужны', price:'30 000 - 45 000 ₽'},
-							{label:'Топ заказов', label_color:'red', img:'project2.png', title:'Полное отопление', note:'Без доплат: консультации, сопровождение, гарантия по договору.', text:'Может включать: только тёплый пол, только радиаторы, комбинацию «тёплый пол + радиаторы»', price:'65 000 - 89 000 ₽'},
+							{label:'классическое решение', img:'project1.png', title:'Только котельная', note:'Без доплат: консультации, сопровождение, гарантия по договору.', text:'Подходит, если тёплые полы и радиаторы уже установлены или не нужны', price:'36 000 ₽'},
+							{label:'Топ заказов', label_color:'red', img:'project2.png', title:'Полное отопление', note:'Без доплат: консультации, сопровождение, гарантия по договору.', text:'Может включать: только тёплый пол, только радиаторы, комбинацию «тёплый пол + радиаторы»', price:'72 000 ₽'},
 							{label:'для домов от 150 м²',label_color:'green', img:'project3.png', title:'Индивидуальный проект', note:'Без доплат: консультации, сопровождение, гарантия по договору.', text:'Для домов более 150 м² или со сложными инженерными решениями', price:'Индивидуально'},
 						]
 					each item in list
@@ -195,7 +195,7 @@ block body
 										+svg('ic-tag','ic-tag', '15', '15')
 									= item.price
 
-								a(href="#", data-fancybox, data-src="#form-project").btn Получить персональную цену
+								a(href="#", data-fancybox, data-src="#form-project").btn Получить пример со сметой
 			
 	section.advant-card-wrap.m-indent(id="modular-boiler")
 		.container
@@ -310,7 +310,7 @@ block body
 						|За 25 лет мы 
 						span.text-color доказали свою надежность
 
-					p и выполнили более 2000+ проектов по всей России
+					p и выполнили более 5000+ проектов по всей России
 					
 		.person-list
 			.container
@@ -535,13 +535,13 @@ block body
 		.container
 			.video-wrap__top
 				.row
-					.col-lg-6.col-xxl-7
+					.col-lg-6.col-xl-7
 						h2
 							|Делимся опытом 
 							br
 							span.text-color и&nbsp;экспертным мнением
 
-					.col-lg-6.col-xxl-5
+					.col-lg-6.col-xl-5
 						.social-wrap
 							.social-wrap__label Подписывайтесь, чтобы следить за обновлениями и советами
 
@@ -760,10 +760,10 @@ block body
 					.social-wrap__label Или напишите нам:
 
 					.social.social_white
-						a(href="https://t.me/vechtruba_manager", target="_blank").social__item.social__item_tg
+						a(href="#").social__item.social__item_tg
 							+svg('ic-telegram','ic-telegram', '17', '16')
 
-						a(href="https://wa.me/79374401621", target="_blank").social__item.social__item_wh
+						a(href="#").social__item.social__item_wh
 							+svg('ic-whatsapp','ic-whatsapp', '19', '20')
 
 					
