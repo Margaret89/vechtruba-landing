@@ -64,7 +64,26 @@ block body
 								| в проект:
 
 						.main-projects__img
-							img(src="/upload/3d.png", alt="")
+							.img-complect
+								-
+									var list=[
+										{img:'boiler-room.jpg', text:'Котельная', top: '28%', left: '46%'},
+										{img:'boiler-room.jpg', text:'Батарея', top: '57%', left: '73%'},
+										{img:'boiler-room.jpg', text:'Тёплый пол', top: '77%', left: '27%'},
+									]
+								each item in list
+									.img-complect__item.js-img-complect-item(style="top:"+item.top+"; left:"+item.left)
+										.img-complect__btn.js-img-complect-btn
+											+svg('ic-plus','ic-plus', '12', '12')
+
+										.img-complect__popup.js-img-complect-popup
+											.img-complect__content
+												.img-complect__pic
+													img(src="/upload/"+item.img, alt="")
+												
+												.img-complect__text= item.text
+
+								img(src="/upload/3d-only.png", alt="")
 
 						-
 							var list=[

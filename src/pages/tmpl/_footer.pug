@@ -56,3 +56,11 @@ footer.footer
 
 						.footer-links__item
 							a(href="#") Политика конфиденциальности
+
+#msg-success(style='display: none;')
+	.success-alert.js-success-alert
+		.success-alert__icon
+			+svg('ic-tick-circle','ic-tick-circle', '50', '50')
+
+		.success-alert__title.js-success-alert-title Ваше сообщение отправлено!
+		.success-alert__text.js-success-alert-text В ближайшее время с вами свяжется наш менеджер.

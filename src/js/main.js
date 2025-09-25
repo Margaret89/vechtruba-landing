@@ -129,3 +129,66 @@ if (document.querySelector('.js-link-move')) {
 		}
 	});
 }
+
+//Открытие попапов при клике по крестикам на картинке
+if (document.querySelector('.js-img-complect-btn')) {
+	document.querySelectorAll('.js-img-complect-btn').forEach(function(btn){
+		btn.onclick = function(event){
+			event.preventDefault();
+
+			let itemImg = btn.closest('.js-img-complect-item');
+			let popupImg = itemImg.querySelector('.js-img-complect-popup');
+
+			document.querySelectorAll('.js-img-complect-popup').forEach(function(popup){
+				popup.classList.remove('active');
+			});
+
+			popupImg.classList.add('active');
+		}
+	});
+}
+
+// Обработчик отправки формы
+document.querySelectorAll('.js-form-site').forEach(function(form){
+	form.addEventListener('submit', function(e) {
+		e.preventDefault(); // Предотвращаем стандартную отправку
+		
+		// Создаем FormData из формы
+		const formData = new FormData(this);
+		
+		// Отправляем данные на сервер
+		fetch('send_email.php', {
+			method: 'POST',
+			body: formData
+		})
+		.then(response => response.json())
+		.then(data => {
+			if (data.success) {
+				// 1. Очищаем форму
+				this.reset();
+				
+				// 2. Закрываем текущее окно Fancybox (если форма в нем)
+				Fancybox.close();
+				
+				// 3. Показываем окно успеха через Fancybox
+				setTimeout(() => {
+					Fancybox.show(
+						[{ src: "#msg-success", type: "inline" }],
+						{
+							dragToClose: false,
+							closeButton: true,
+							// mainClass: "fancybox-success",
+						}
+					);
+				}, 300);
+				
+			} else {
+				alert('Ошибка: ' + data.message);
+			}
+		})
+		.catch(error => {
+			console.error('Error:', error);
+			alert('Произошла ошибка при отправке формы');
+		});
+	});
+});
