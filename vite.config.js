@@ -10,6 +10,10 @@ import noAttr from './plugins/no-attr'
 export default defineConfig(({ command, mode })=>{
 	const env = loadEnv(mode, process.cwd(), '')
 	let pugMoveToRoot=(['bitrix','production'].includes(mode) || env.OUTDIR)?false:true
+
+	// Определяем, нужно ли добавлять атрибуты
+	const isLegacyMode = mode === 'legacy'
+
 	return {
 		server:{
 			open:(pugMoveToRoot)?true:'pages/index.html',
@@ -108,8 +112,8 @@ export default defineConfig(({ command, mode })=>{
 				template:'treemap' // sunburst, treemap, network, raw-data, list
 			}),
 			noAttr({
-				crossorigin:(mode=='legacy')?true:false,
-				typeModule:(mode=='legacy')?true:false,
+				crossorigin: isLegacyMode,
+				typeModule: isLegacyMode,
 			}),
 		],
 	}

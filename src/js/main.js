@@ -63,6 +63,27 @@ const videoSlider = new Swiper('.js-video-slider',
 	},
 });
 
+// Слайдер галереи
+const gallerySlider = new Swiper('.js-gallery-slider',
+{
+	modules: [Navigation],
+	slidesPerView: 1,
+	spaceBetween: 24,
+	loop: true,
+	navigation: {
+		nextEl: '.js-gallery-slider-next',
+		prevEl: '.js-gallery-slider-prev',
+	},
+	breakpoints: {
+		992: {
+			slidesPerView: 4,
+		},
+		768: {
+			slidesPerView: 3,
+		},
+	},
+});
+
 // Слайдер преимуществ
 const advantSlider = new Swiper('.js-advant-slider',
 {
@@ -152,43 +173,86 @@ if (document.querySelector('.js-img-complect-btn')) {
 document.querySelectorAll('.js-form-site').forEach(function(form){
 	form.addEventListener('submit', function(e) {
 		e.preventDefault(); // Предотвращаем стандартную отправку
-		
-		// Создаем FormData из формы
-		const formData = new FormData(this);
-		
-		// Отправляем данные на сервер
-		fetch('send_email.php', {
-			method: 'POST',
-			body: formData
-		})
-		.then(response => response.json())
-		.then(data => {
-			if (data.success) {
-				// 1. Очищаем форму
-				this.reset();
-				
-				// 2. Закрываем текущее окно Fancybox (если форма в нем)
-				Fancybox.close();
-				
-				// 3. Показываем окно успеха через Fancybox
-				setTimeout(() => {
-					Fancybox.show(
-						[{ src: "#msg-success", type: "inline" }],
-						{
-							dragToClose: false,
-							closeButton: true,
-							// mainClass: "fancybox-success",
-						}
-					);
-				}, 300);
-				
-			} else {
-				alert('Ошибка: ' + data.message);
-			}
-		})
-		.catch(error => {
-			console.error('Error:', error);
-			alert('Произошла ошибка при отправке формы');
-		});
+
+		const textInputs = form.querySelectorAll('input[type="text"]');
+		const hasTextData = Array.from(textInputs).some(input => 
+			input.value.trim() !== ''
+		);
+
+		console.log('Есть данные в текстовых полях:', hasTextData);
+
+		if (!hasTextData) {
+			console.log('Блокируем отправку - нет данных');
+			// alert('Заполните текстовые поля!');
+			return; // Прерываем выполнение
+		}else{
+			// Создаем FormData из формы
+			const formData = new FormData(this);
+			
+			// Отправляем данные на сервер
+			fetch('send_email.php', {
+				method: 'POST',
+				body: formData
+			})
+			.then(response => response.json())
+			.then(data => {
+				if (data.success) {
+					// 1. Очищаем форму
+					this.reset();
+					
+					// 2. Закрываем текущее окно Fancybox (если форма в нем)
+					Fancybox.close();
+					
+					// 3. Показываем окно успеха через Fancybox
+					setTimeout(() => {
+						Fancybox.show(
+							[{ src: "#msg-success", type: "inline" }],
+							{
+								dragToClose: false,
+								closeButton: true,
+								// mainClass: "fancybox-success",
+							}
+						);
+					}, 300);
+					
+				} else {
+					alert('Ошибка: ' + data.message);
+				}
+			})
+			.catch(error => {
+				console.error('Error:', error);
+				alert('Произошла ошибка при отправке формы');
+			});
+		}
 	});
 });
+
+// Стрелка наверх
+if (document.querySelector('.js-move-up')) {
+	const scrollToTopBtn = document.querySelector('.js-move-up');
+
+	// Функция для показа/скрытия кнопки
+	console.log('222 = ', );
+	function toggleScrollButton() {
+		console.log('111 = ', );
+		if (window.pageYOffset > 300) {
+			scrollToTopBtn.classList.add('visible');
+		} else {
+			scrollToTopBtn.classList.remove('visible');
+		}
+	}
+	
+	// Функция для прокрутки наверх
+	function scrollToTop() {
+		window.scrollTo({
+		top: 0,
+		behavior: 'smooth'
+		});
+	}
+	
+	// Слушаем событие прокрутки
+	window.addEventListener('scroll', toggleScrollButton);
+	
+	// Добавляем обработчик клика
+	scrollToTopBtn.addEventListener('click', scrollToTop);
+}

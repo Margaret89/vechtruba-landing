@@ -1,7 +1,8 @@
 /*-------------- popup-form -----------------*/
 .popup-form{
-	width: 570px;
+	width: 650px;
 	max-width: 100%;
+	padding: 50px 40px;
 
 	.form-site-wrap{
 		border-radius: 0;
@@ -18,6 +19,8 @@
 
 @media (max-width: 767px) {
 	.popup-form{
+		padding: 40px 30px;
+		
 		.form-site-wrap{
 			&__title{font-size: 2.5rem;}
 		}

@@ -1,14 +1,10 @@
 /*-------------- fancybox -----------------*/
 body .f-html{
 	max-width: 100%;
-	padding: 50px 40px;
 	background: var(--color-primary);
 	color: #fff;
 	border-radius: 16px;
+	padding: 0;
 
 	.icon{color: #fff;}
-}
-
-@media (max-width: 767px) {
-	body .f-html{padding: 40px 30px;}
 }

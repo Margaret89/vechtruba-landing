@@ -1,17 +1,38 @@
- const noAttr = ({crossorigin,typeModule}) => {
-	return {
-		name: "no-attribute",
-		apply: "build",
-		transformIndexHtml(html){
-			if(crossorigin){
-				html=html.replaceAll(' crossorigin ', " ");
-			}
-			if(typeModule){
-				html=html.replaceAll(' type="module" ', " ");
-			}
-			return html
-		}
-	}
+// plugins/no-attr.js
+export default function noAttr(options = {}) {
+    return {
+        name: 'no-attr',
+        transformIndexHtml(html) {
+            if (options.crossorigin || options.typeModule) {
+                let result = html;
+                
+                if (options.crossorigin) {
+                    result = result.replace(
+                        /<script(.*?)>/g,
+                        (match, attributes) => {
+                            if (!attributes.includes('crossorigin') && attributes.includes('src')) {
+                                return `<script${attributes} crossorigin>`;
+                            }
+                            return match;
+                        }
+                    );
+                }
+                
+                if (options.typeModule) {
+                    result = result.replace(
+                        /<script(.*?)>/g,
+                        (match, attributes) => {
+                            if (!attributes.includes('type=') && attributes.includes('src')) {
+                                return `<script${attributes} type="module">`;
+                            }
+                            return match;
+                        }
+                    );
+                }
+                
+                return result;
+            }
+            return html;
+        }
+    };
 }
-
-export default noAttr

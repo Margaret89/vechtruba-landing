@@ -168,6 +168,7 @@
 .success-alert{
 	max-width: 430px;
 	text-align: center;
+	padding: 50px 40px;
 
 	&__icon{
 		margin-bottom: 1rem;
@@ -243,4 +244,6 @@
 			padding: 0 24px;
 		}
 	}
+
+	.success-alert{padding: 40px 30px;}
 }

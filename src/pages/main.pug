@@ -404,32 +404,40 @@ block body
 							+svg('ic-zoom-in','ic-zoom-in', '20', '21')
 							|нажмите на фото, чтобы&nbsp;их увеличить
 					
-				.gallery__list
-					.row
-						-
-							var list=[
-								{img:'gallery1.jpg', img_big:'gallery1-big.png', text:'Проект водоснабжения и отопления с теплым полом'},
-								{img:'gallery2.jpg', img_big:'gallery2-big.png', text:'Проект отопления квартиры 150 кв. м.'},
-								{img:'gallery3.jpg', img_big:'gallery3-big.png', text:'Проект насосной станции'},
-								{img:'gallery4.jpg', img_big:'gallery4-big.png', text:'Проект вентиляции бассейна'},
-								{img:'gallery5.jpg', img_big:'gallery5-big.png', text:'Проект водоснабжения квартиры'},
-								{img:'gallery6.jpg', img_big:'gallery6-big.png', text:'Проект вентиляции бассейна'},
-								{img:'gallery7.jpg', img_big:'gallery7-big.png', text:'Проект дымовых труб'},
-								{img:'gallery8.jpg', img_big:'gallery8-big.png', text:'Проект вентиляции кафе'},
-							]
-						each item, index in list
-							.col-md-4.col-lg-3(class=index>3?'d-none d-md-block':'')
-								a(href="/upload/"+item.img_big, data-fancybox='gallery').gallery__item
-									.gallery__img-wrap
-										.gallery__img
-											img(src="/upload/"+item.img, alt="")
+				
+						.gallery-slider-wrap
+							.swiper.gallery-slider.js-gallery-slider
+								.swiper-wrapper
+									-
+										var list=[
+											{img:'gallery1.jpg', img_big:'gallery1-big.png', text:'Проект водоснабжения и отопления с теплым полом'},
+											{img:'gallery2.jpg', img_big:'gallery2-big.png', text:'Проект отопления квартиры 150 кв. м.'},
+											{img:'gallery3.jpg', img_big:'gallery3-big.png', text:'Проект насосной станции'},
+											{img:'gallery4.jpg', img_big:'gallery4-big.png', text:'Проект вентиляции бассейна'},
+											{img:'gallery5.jpg', img_big:'gallery5-big.png', text:'Проект водоснабжения квартиры'},
+											{img:'gallery6.jpg', img_big:'gallery6-big.png', text:'Проект вентиляции бассейна'},
+											{img:'gallery7.jpg', img_big:'gallery7-big.png', text:'Проект дымовых труб'},
+											{img:'gallery8.jpg', img_big:'gallery8-big.png', text:'Проект вентиляции кафе'},
+										]
+									each item, index in list
+										.swiper-slide
+											a(href="/upload/"+item.img_big, data-fancybox='gallery').gallery-item
+												.gallery-item__img-wrap
+													.gallery-item__img
+														img(src="/upload/"+item.img, alt="")
 
-									.gallery__text= item.text
+												.gallery-item__text= item.text
 
-				.row
-					.col-12
-						.gallery__btn
-							a(href="https://vechtruba.ru/proekty/", target="_blank").btn Показать больше примеров
+							
+								.gallery-slider-wrap__bottom
+									.swiper-button-prev.js-gallery-slider-prev
+										+svg('ic-arrow-left','ic-arrow-left', '8', '14')
+
+									.gallery-slider-wrap__note
+										|листайте, чтобы увидеть больше примеров
+									
+									.swiper-button-next.js-gallery-slider-next
+										+svg('ic-arrow-right','ic-arrow-right', '8', '14')
 
 	section.reviews-wrap.m-indent(id="reviews")
 		.container
@@ -622,7 +630,7 @@ block body
 						.form-site-wrap__title Узнайте, как мы сделаем ваш проект
 						.form-site-wrap__text Оставьте заявку и мы свяжемся с вами, чтобы ответить на вопросы и показать примеры 
 
-						form.form-site
+						form.form-site.js-form-site
 							.form-site__item
 								.form-site__label Как с вами связаться?
 
@@ -677,7 +685,7 @@ block body
 				.form-site-wrap__title Узнайте стоимость проекта
 				.form-site-wrap__text Оставьте свои контактные данные для получения финальной цены со скидкой. Максимальная скидка предоставляется после изучения проекта вашего дома.
 
-				form.form-site
+				form.form-site.js-form-site
 					.form-site__item
 						.form-site__label Как с вами связаться?
 
@@ -729,7 +737,7 @@ block body
 				.form-site-wrap__title Получите примеры со сметой
 				.form-site-wrap__text Укажите ваши контактные данные для отправки примера сметы и реального проекта.
 
-				form.form-site
+				form.form-site.js-form-site
 					.form-site__item
 						.form-site__label Как с вами связаться?
 
