@@ -232,9 +232,7 @@ if (document.querySelector('.js-move-up')) {
 	const scrollToTopBtn = document.querySelector('.js-move-up');
 
 	// Функция для показа/скрытия кнопки
-	console.log('222 = ', );
 	function toggleScrollButton() {
-		console.log('111 = ', );
 		if (window.pageYOffset > 300) {
 			scrollToTopBtn.classList.add('visible');
 		} else {
